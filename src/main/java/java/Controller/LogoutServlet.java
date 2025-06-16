@@ -30,12 +30,7 @@ public class LogoutServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        User user = session.getAttribute("user") != null ? (User) session.getAttribute("user") : null;
-        if (user != null) {
-            session.removeAttribute("user");
-        }
-        response.sendRedirect(request.getContextPath());
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,7 +45,12 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        User user = session.getAttribute("user") != null ? (User) session.getAttribute("user") : null;
+        if (user != null) {
+            session.removeAttribute("user");
+        }
+        response.sendRedirect(request.getContextPath());
     }
 
     /**
