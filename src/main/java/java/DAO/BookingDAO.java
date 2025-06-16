@@ -15,10 +15,7 @@ import java.util.logging.Logger;
  * @author Che Zulaika
  */
 public class BookingDAO {
-    
-    private String jdbcURL = "jdbc:mysql://localhost:3306/hotel_db";
-    private String jdbcUsername = "root";
-    private String jdbcPassword = "admin";
+
 
     private static final String INSERT_BOOKING = "INSERT INTO booking (customer_id, room_number, check_in, check_out) VALUES (?, ?, ?, ?)";
     private static final String SELECT_ALL_BOOKING = "SELECT * FROM booking";
